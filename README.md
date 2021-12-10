@@ -51,6 +51,12 @@ For the other fields, it saves the name of the field as a key,
 and the text of the field as a value.
 ##
 
+def keep_high_freq_drugs(data_info: data)
+##
+Each report has information about many drugs.
+For each report, the function keeps only the drugs that have the highest frequency, according to data_info.drugs_freq.
+##
+
 def main()
 ##
 The function reads the XML files, for each file it creates an Element Tree,
