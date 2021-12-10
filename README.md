@@ -55,6 +55,7 @@ def keep_high_freq_drugs(data_info: data)
 ##
 Each report has information about many drugs.
 For each report, the function keeps only the drugs that have the highest frequency, according to data_info.drugs_freq.
+In addition, the function removes some of the drug fields, which we assumed that they are irrelevant.
 ##
 
 def main()
