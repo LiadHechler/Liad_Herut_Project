@@ -5,20 +5,18 @@ class data
 Class to keep the information of the data.
 safety_reports is a list of dictionaries,
 each element in the list represents the information of a safety report.
-drugs_freq is a dictionary- each key is a name of a drug,
+bag_of_drugs is a dictionary- each key is a name of a drug,
                             each value is the frequency of this drug.
 reaction_outcome_freq is a dictionary - each key is a reaction outcome,
                                         each value is the frequency of this reaction.
                                         **for every report we consider only the most severe reaction outcome
 ##
 
-def medical_product_handling(curr_d: dict, item: ET.Element, drugs_freq: dict)
+def medical_product_calc_freq(item: ET.Element, bag_of_drugs: dict)
 ##
-Updates the data_info.drugs_freq dictionary, each key is a name of a drug
-and each value is the frequency of this drug in the safety reports.
+Updates the data_info.bag_of_drugs dictionary, each key is a word from a name of a drug
+and each value is the frequency of this word in the safety reports.
 We save the dictionary as an attribute in the data class.
-
-The name of each drug in the dictionary is the first word of its name in the report.
 ##
 
 def reaction_outcome_handling(most_severe_outcome: str, reaction_outcome_freq: dict)
@@ -28,7 +26,7 @@ each key is a reaction outcome, and each value is the frequency of this reaction
 For each report, we count only the most severe outcome.
 ##
 
-def drug_handling(root: ET.Element, drugs_freq: dict) -> dict
+def drug_handling(root: ET.Element, bag_of_drugs: dict) -> dict
 ##
 Treats the "drug" field.
 Each report consists of many of drugs and each drug has many sub-fields,
