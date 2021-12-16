@@ -12,7 +12,7 @@ reaction_outcome_freq is a dictionary - each key is a reaction outcome,
                                         **for every report we consider only the most severe reaction outcome
 ##
 
-def medical_product_calc_freq(item: ET.Element, bag_of_drugs: dict)
+def medical_product_calc_freq(curr_d: dict, item: ET.Element, bag_of_drugs: dict)
 ##
 Updates the data_info.bag_of_drugs dictionary, each key is a name of a drug
 and each value is the frequency of this drug in the safety reports.
