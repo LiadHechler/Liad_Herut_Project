@@ -7,12 +7,11 @@ safety_reports is a list of dictionaries,
 each element in the list represents the information of a safety report.
 bag_of_drugs is a dictionary- each key is a name of a drug,
                             each value is the frequency of this drug.
-reaction_outcome_freq is a dictionary - each key is a reaction outcome,
-                                        each value is the frequency of this reaction.
-                                        **for every report we consider only the most severe reaction outcome
+bag_of_route is a dictionary- each key is a route of administration code,
+                            each value is the frequency of this route.
 ##
 
-def medical_product_calc_freq(curr_d: dict, item: ET.Element, data_info: data)
+def drug_route_freq(curr_d: dict, item: ET.Element, data_info: data)
 ##
 Updates the data_info.bag_of_drugs dictionary, each key is a name of a drug
 and each value is the frequency of this drug in the safety reports.
@@ -24,26 +23,23 @@ and each value is the frequancy of this route in the safety reports.
 We save the dictionaries as attributes in the data class.
 ##
 
-def reaction_outcome_handling(most_severe_outcome: str, reaction_outcome_freq: dict)
-##
-Updates the data_info.reaction_outcome_freq dictionary,
-each key is a reaction outcome, and each value is the frequency of this reaction.
-For each report, we count only the most severe outcome.
-##
-
 def drug_handling(root: ET.Element, bag_of_drugs: dict) -> dict
 ##
 Treats the "drug" field.
 Each report consists of many of drugs and each drug has many sub-fields,
-so we keep the information of each field in a dictionary.
-The function returns the dictionary with the information of the current field.
+so we keep the information of the fields: "medicinalproduct","drugadministrationroute","drugstructuredosagenumb","drugstructuredosageunit" in a dictionary.
+The function returns the dictionary with the information of the current drug field.
 ##
 
-def reaction_handling(root: ET.Element, most_severe: str) -> str:
+def most_severe_reaction_func(root: ET.Element, most_severe: str) -> str:
 ##
 Function to save the most severe reaction outcome for every report.
 ##
 
+def make_reaction_binary(most_severe_reaction: str) -> int
+##
+The function returns the binary label (1/0) for the field "reaction".
+##
 
 def treat_safety_report(root: ET.Element, data_info: data)
 ##
@@ -58,7 +54,6 @@ def keep_high_freq_drugs(data_info: data)
 ##
 Each report has information about many drugs.
 For each report, the function keeps only the drugs that have the highest frequency, according to data_info.drugs_freq.
-In addition, the function removes some of the drug fields, which we assumed that they are irrelevant.
 ##
 
 def main()
