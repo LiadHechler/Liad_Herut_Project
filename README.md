@@ -71,10 +71,14 @@ We chose the 3 most frequent administration route codes, according to graph 1.
 We named he rest of the codes, including "o65" (="unknown"), as "other".
 ##
 
-def keep_high_freq_drugs(data_info: data)
+def keep_high_freq_drugs(data_info: data) -> list
 ##
 Each report has information about many drugs.
-For each report, the function keeps only 100 drugs that have the highest frequency, according to data_info.bag_of_drugs.
+For each report, the function keeps only 200 drugs that have the highest frequency, according to data_info.bag_of_drugs.
+The function calls to the function rename_drug, and than it calculate the frequencies of the new name (including the administration route).
+In addition, the function ***PLOT***...
+According to the plot, we decided to keep only the drugs that their frequencies are more than 1% of the number of the safety reports.
+It returns the list of the remined drugs.
 ##
 
 def main()
